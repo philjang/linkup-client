@@ -1,38 +1,409 @@
-.App {
-  text-align: center;
+:root {
+  /* background-color: rgb(49, 56, 64); */
+  background: rgba(49, 56, 64, 1);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+main {
+  margin: 7vh 15vw;
+}
+
+@media (max-width: 768px) {
+  main {
+    margin: 5vh 5vw;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+input {
+  text-align: center;
+  line-height: 2em;
+  width: 30vw;
+  margin: 1em auto;
+  border-radius: 0.25em;
+  border: none;
+}
+
+
+footer {
+  margin: 2vw 0;
+}
+
+footer a {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  text-align: center;
+  /* background-color: powderblue; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.nav-link {
+  /* TRBL */
+  padding: 0px 10px 0px 10px;
+  color: whitesmoke;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: rgb(86, 88, 255);
+}
+
+nav {
+  padding: 1rem;
+  margin: 0px;
+  background-color: rgba(34, 39, 45, 0.8);
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(250, 249, 239);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+
+
+
+
+/* the feed/profile page div */
+/* .feed-page {
+} */
+
+/* individual photo on feed/profile page */
+.polaroid-image {
+  /* margin-top: 7.9%; */
+  width: 16.1vw;
+  height: 16.1vw;
+  object-fit: contain;
+}
+
+/* photo details page img */
+.individual {
+  width: 70vw;
+  height: 40vh;
+  object-fit: contain;
+  margin: 5vh auto;
+}
+
+.solo-pic-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50vh;
+  margin-left: -50vw;
+  background-color: rgb(32, 38, 43);
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
+/* soloing the picture from the picture page */
+.solo {
+  width: 80vw;
+  height: 70vh;
+  object-fit: contain;
+  margin: 5vh auto;
+}
+
+/* class for title in feed */
+.dil {
+  font-family: "Candal", sans-serif;
+  color: white;
+  text-shadow: 3px 4px 18px #000000;
+}
+
+.owner-name {
+  font-family: "Candal", sans-serif;
+  color: white;
+  text-shadow: 3px 4px 18px #000000;
+}
+
+/* .sign-up {
+} */
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 2vw;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: space-around;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bg-light {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2em;
+  border-radius: 0.5em;
+}
+
+.margin-lr {
+  margin-left: 15vw;
+  margin-right: 15vw;
+}
+
+.btn {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgba(49, 56, 64, 1);
+  width: 20vw;
+  padding: 1em 3em;
+  border-radius: 0.75em;
+  border: none;
+  font-size: 1em;
+}
+
+.btn-sm {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgb(32, 38, 43);
+  /* width: 15em; */
+  margin: 1em;
+  padding: 0.75em 3em;
+  border-radius: 0.5em;
+  border: none;
+  font-size: 0.75em;
+  position: absolute;
+}
+
+.btn:hover,
+.btn-sm:hover,
+.btn-edit:hover,
+.image-upload:hover {
+  background-color: rgb(86, 88, 255);
+  color: white;
+  cursor: pointer;
+}
+
+.btn-edit {
+  color: white;
+  background-color: rgb(32, 38, 43);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+}
+
+.profile .btn-edit {
+  position: relative;
+  left: 30vw;
+  bottom: 4vh;
+}
+
+.picture .btn-edit {
+  position: relative;
+  left: 30vw;
+  bottom: 3.15em;
+}
+
+.picture .comment .btn-edit {
+  bottom: 3em;
+}
+
+.btn-dlt {
+  font-size: 1.2em;
+  width: 1.8em;
+  color: white;
+  background-color: rgb(255, 104, 137);
+  margin: 0 auto;
+  padding: 0.2em 0.3em;
+  border-radius: 0.4em;
+  border: none;
+}
+
+.btn-dlt:hover {
+  color: rgb(255, 104, 137);
+  background-color: white;
+}
+
+.polaroid .btn-dlt {
+  position: relative;
+  bottom: 20.1vw;
+  left: 9.5vw;
+}
+
+.comment .btn-dlt {
+  position: relative;
+  bottom: 2.2em;
+  left: 30vw;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 1em 0;
   }
-  to {
-    transform: rotate(360deg);
+  .picture .btn-edit {
+    bottom: 0;
   }
+  .comment .btn-dlt {
+    bottom: 0;
+  }
+  .picture .comment .btn-edit {
+    bottom: 1.5em;
+  }
+}
+
+.polaroid.animate__infinite.animate__pulse {
+  --animate-duration: 4s;
+}
+
+.animate__infinite.animate__swing {
+  --animate-duration: 1.5s;
+}
+
+.picture .comment p {
+  margin: 1.88em 0;
+}
+
+.picture p {
+  margin: 1.17em 0;
+}
+
+.image-upload {
+  margin: 1em auto 1.5em auto;
+  color: white;
+  background-color: rgba(49, 56, 64, 1);
+  width: 6em;
+  padding: 0.5em 1.5em;
+  border-radius: 0.75em;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .image-upload {
+    margin: 1em auto 1.5em auto;
+    color: white;
+    background-color: rgba(49, 56, 64, 1);
+    width: 20vw;
+    padding: 0.5em 0;
+  }
+}
+
+.github-button {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 1rem;
+  border-radius: 0.35rem;
+}
+
+.landing-text-one {
+  font-size: 3.9rem;
+  font-family: "Candal", sans-serif;
+  text-shadow: 3px 4px 18px #000000;
+}
+
+.github-button:hover {
+  background-color: rgb(86, 88, 255);
+}
+
+.landing-p-one {
+  margin-bottom: 2rem;
+  font-size: 1em;
+  color: rgb(201, 201, 201);
+}
+
+.app-explanation-two {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0rem 3rem;
+  color: rgb(201, 201, 201);
+}
+
+.life {
+  color: rgb(86, 88, 255);
+}
+
+.about-h1 {
+  font-size: 3rem;
+  font-family: "Candal", sans-serif;
+  text-shadow: 3px 4px 18px #000000;
+}
+
+.landing-text {
+  color: rgb(201, 201, 201);
+  width: 25vw;
+}
+
+.landing-text-bot {
+  margin-bottom: 2rem;
+  color: rgb(201, 201, 201);
+}
+
+.imgur {
+  margin: 0 auto;
+  width: 40rem;
+}
+
+.member-name {
+  font-size: 1.2rem;
+}
+
+.socials a {
+  color: white;
+  font-size: 2rem;
+}
+
+.bios {
+  width: 30rem;
+}
+
+.indv-user {
+  color: rgba(86, 89, 255, 0.995);
+}
+
+#profile-pic {
+  max-width: 20vw;
+  border-radius: 50%;
+  border: rgb(86, 88, 255) solid 1.5px;
+  box-shadow: 5px 10px 18px #000000;
+}
+
+#profile-pic-link {
+  color: white;
+  background-color: rgb(32, 38, 43);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+  text-decoration: none;
+  font-size: 0.75em;
+}
+
+#profile-pic-link:hover {
+  background-color: rgb(86, 88, 255);
+}
+
+#delete-btn {
+  color: white;
+  background-color: rgb(255, 104, 137);
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  border: none;
+  text-decoration: none;
+}
+
+#delete-btn:hover {
+  color: white;
+  background-color: red;
+  box-shadow: 5px 7px 18px #000000;
+}
+
+.max-file {
+  color: rgb(137, 153, 173);
 }
