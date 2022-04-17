@@ -27,7 +27,7 @@ export default function Circle({ currentUser }) {
 	useEffect(() => {
 		(async () => {
 			try {
-                console.log('firint')
+                // console.log('firing')
 				const token = localStorage.getItem("t")
 				const options = {
 					headers: {
@@ -120,7 +120,7 @@ export default function Circle({ currentUser }) {
             }
             // console.log(data)
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/discussions/`, discussionForm, options)
-            console.log(response.data);
+            // console.log(response.data)
             setDiscussionForm({
                 name: '',
                 description: '',
@@ -202,6 +202,7 @@ export default function Circle({ currentUser }) {
             )}
             <p>members: {userList}</p>
             {discussionList}
+            <h3>Add a New Discussion:</h3>
             <form onSubmit={addDiscussion}>
                 <div>
                     <label htmlFor='name'></label>

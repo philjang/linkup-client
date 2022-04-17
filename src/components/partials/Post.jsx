@@ -61,7 +61,7 @@ export default function Post({ currentUser, post, time, actions, setActions }) {
                     <>
                         <form onSubmit={editPost}>
                             <label htmlFor='content'></label>
-                            <input id='content' type='text' placeholder={post.content} autoComplete='off' onChange={e => setEditForm(e.target.value)} value={editForm}/>
+                            <input id='content' type='text' placeholder={post.content} autoComplete='off' onChange={e => setEditForm(e.target.value)} value={editForm} required/>
                             <button type="submit">Submit Edits</button>
                         </form>
                         <button onClick={() => deletePost(post.id)} className="btn-dlt animate__animated animate__infinite animate__pulse"><i className="fas fa-times-circle"></i></button>
