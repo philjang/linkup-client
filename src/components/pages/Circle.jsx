@@ -102,7 +102,7 @@ export default function Circle({ currentUser }) {
         }
     }
 
-    const handleDelete = async (discussionId) => {
+    const deleteDiscussion = async (discussionId) => {
 		try {
 			const token = localStorage.getItem("t")
 			const options = {
@@ -132,7 +132,7 @@ export default function Circle({ currentUser }) {
                     <h2>{discussion.name}</h2>
                     <h3>{discussion.description}</h3>
                 </Link>
-                {currentUser.userId === discussion.admin.toString() && showEdit && <button onClick={() => handleDelete(discussion.id)} className="btn-dlt animate__animated animate__infinite animate__pulse"><i className="fas fa-times-circle"></i></button>}
+                {currentUser.userId === discussion.admin.toString() && showEdit && <button onClick={() => deleteDiscussion(discussion.id)} className="btn-dlt animate__animated animate__infinite animate__pulse"><i className="fas fa-times-circle"></i></button>}
             </div>
         )
     })
