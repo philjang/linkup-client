@@ -29,14 +29,16 @@ function App() {
   // USE-EFFECT
   // useEffect that handles localstorage if the user navigates away from the page/refreshes
   useEffect(() => {
-    const token = localStorage.getItem("t")
-    const userId = localStorage.getItem("currentUser")
+    const token = localStorage.getItem('t')
+    const userId = localStorage.getItem('userId')
+    const user = localStorage.getItem('user')
 
     // if a token is found, log the user in; otherwise, make sure they are logged out
     if (token) {
       setCurrentUser({
         token: token,
-        userId: userId
+        userId: userId,
+        user: user
       })
     } else {
       setCurrentUser(null)
@@ -47,7 +49,8 @@ function App() {
   const handleLogout = () => {
     // remove the token from local storage
     if (localStorage.getItem("t")) localStorage.removeItem("t")
-    if (localStorage.getItem("currentUser")) localStorage.removeItem("currentUser")
+    if (localStorage.getItem("userId")) localStorage.removeItem("userId")
+    if (localStorage.getItem("user")) localStorage.removeItem("user")
     // set the user state to be null
     setCurrentUser(null);
   };
@@ -68,7 +71,7 @@ function App() {
 
             <Route path="/profile" element={<Profile />} />
 
-            <Route path="/profiles/:id" element={<Profile currentUser={currentUser} handleLogout={handleLogout} />} />
+            <Route path="/profiles/:id" element={<Profile currentUser={currentUser} />} />
 
             {/* <Route path="/pictures/:id" element={<Picture currentUser={currentUser} />} /> */}
 

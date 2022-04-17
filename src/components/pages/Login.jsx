@@ -16,10 +16,12 @@ export default function Login ({ currentUser, setCurrentUser }) {
             // console.log(response.data)
             const { token } = response.data
             localStorage.setItem('t', token)
-            localStorage.setItem('currentUser', response.data.id)
+            localStorage.setItem('userId', response.data.id)
+            localStorage.setItem('user', response.data.username)
             setCurrentUser({
                 token: token,
-                userId: response.data.id
+                userId: response.data.id,
+                user: response.data.username
             })
         } catch (err) {
             // console.log(err.response.data)

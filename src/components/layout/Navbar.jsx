@@ -5,12 +5,11 @@ export default function Navbar ({ handleLogout, currentUser }) {
     const loggedIn = (
         <>
             {/* if the user is logged in */}
-            {currentUser ? <Link to={`/profiles/${currentUser.id}`} className='nav-link'>My Profile</Link> : null}
             <Link to='/new' className= 'nav-link'>New Circle</Link>
+            {currentUser && <p style={{display:'inline'}}>Logged in as: {currentUser.user}</p>}
             <Link to='/' className='nav-link'>
                 <span onClick={handleLogout}>Log Out</span>
             </Link>
-            
         </>
     )
     // if the user is logged out
