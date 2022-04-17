@@ -13,10 +13,14 @@ export default function Login ({ currentUser, setCurrentUser }) {
         e.preventDefault()
         try {
             const response = await axios.post(process.env.REACT_APP_SERVER_URL+'/membership/login/', form)
-            // console.log(response, response.data)
+            console.log(response.data)
             const { token } = response.data
             localStorage.setItem('t', token)
-            setCurrentUser(token)
+            localStorage.setItem('currentUser', response.data.id)
+            setCurrentUser({
+                token: token,
+                userId: response.data.id
+            })
         } catch (err) {
             console.log(err.response.data)
             setMsg(err.response.data.msg)

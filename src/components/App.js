@@ -4,44 +4,50 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"
 
-import "../App.css";
+import "../App.css"
 
-import Layout from "./layout/Layout";
-import Landing from "./pages/Landing";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Error from "./pages/Error";
+import Layout from "./layout/Layout"
+import Landing from "./pages/Landing"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import Error from "./pages/Error"
 // import About from "./pages/About";
-import Feed from "./pages/Feed";
-import Profile from "./pages/Profile";
-import Picture from "./pages/Picture";
-import axios from "axios";
-import UploadPicture from "./pages/UploadPicture";
-import UploadProfilePic from "./pages/UploadProfilePic";
+import Feed from "./pages/Feed"
+import Profile from "./pages/Profile"
+import Picture from "./pages/Picture"
+import axios from "axios"
+import UploadPicture from "./pages/UploadPicture"
+import UploadProfilePic from "./pages/UploadProfilePic"
 
 function App() {
   // STATE
   // state with the user data when the user is logged in
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null)
 
   // USE-EFFECT
   // useEffect that handles localstorage if the user navigates away from the page/refreshes
   useEffect(() => {
-    const token = localStorage.getItem("t");
+    const token = localStorage.getItem("t")
+    const userId = localStorage.getItem("currentUser")
+
     // if a token is found, log the user in; otherwise, make sure they are logged out
     if (token) {
-      setCurrentUser(token);
+      setCurrentUser({
+        token: token,
+        userId: userId
+      })
     } else {
-      setCurrentUser(null);
+      setCurrentUser(null)
     }
-
   }, []);
   // logout handler function that deletes a token from localstorage
   const handleLogout = () => {
     // remove the token from local storage
-    if (localStorage.getItem("t")) localStorage.removeItem("t");
+    if (localStorage.getItem("t")) localStorage.removeItem("t")
+    if (localStorage.getItem("currentUser")) localStorage.removeItem("currentUser")
+
     // set the user state to be null
     setCurrentUser(null);
   };
