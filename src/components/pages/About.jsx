@@ -1,5 +1,3 @@
-import Bio from "../partials/Bio"
-
 export default function About() {
     return (
         <>
