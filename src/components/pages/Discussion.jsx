@@ -33,9 +33,27 @@ export default function Discussion() {
 			}
 		})()
 	}, [])
+
+    // FUNCTIONS
+
+    // COMPONENTS
+    const postList = posts.map((post,idx) => {
+        const time = new Date(post.time_posted).toString()
+        return (
+            <div key={idx} className="card">
+                <hr />
+                <h3>{post.content}</h3>
+                <p>- {post.owner}</p>
+                <p>{time}</p>
+            </div>
+        )
+    })
     
     return (
-        <h1>Discussion</h1>
+        <>
+            {discussion && <h1>Discussions - {discussion.name}</h1>}
+            {postList}
+        </>
     )
 }
 
