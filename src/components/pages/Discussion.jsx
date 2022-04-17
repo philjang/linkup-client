@@ -2,6 +2,8 @@ import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
 
+// import PostForm from "../partials/PostForm"
+
 export default function Discussion() {
     // PARAMS
 	const { id } = useParams()
@@ -11,12 +13,14 @@ export default function Discussion() {
 	const [discussion, setDiscussion] = useState(null)
 	const [posts, setPosts] = useState([])
     const [form, setForm] = useState('')
+    const [actions, setActions] = useState(0)
 
 
 	// USE-EFFECT
 	useEffect(() => {
-		(async () => {
-			try {
+        (async () => {
+            try {
+                console.log('firing')
 				const token = localStorage.getItem("t")
 				const options = {
 					headers: {
@@ -33,7 +37,7 @@ export default function Discussion() {
 				navigate('/')
 			}
 		})()
-	}, [])
+	}, [actions])
 
     // FUNCTIONS
     const addPost = async (e) => {
@@ -49,10 +53,11 @@ export default function Discussion() {
                 content: form,
                 discussion_id: id
             }
-            console.log(data)
+            // console.log(data)
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/posts/`, data, options)
-            console.log(response.data);
+            // console.log(response.data);
             setForm('')
+            setActions(actions+1)
         } catch (err) {
             console.log(err.response.data)
             navigate('/')
@@ -82,10 +87,11 @@ export default function Discussion() {
             )}
             {postList}
             <form onSubmit={addPost}>
-                    <label htmlFor='content'></label>
-                    <input id='content' type='text' placeholder='Enter a new post...' autoComplete='off' onChange={e => setForm(e.target.value)} value={form.content}/>
-                    <button type="submit">Post</button>
+                <label htmlFor='content'></label>
+                <input id='content' type='text' placeholder='Enter a new post...' autoComplete='off' onChange={e => setForm(e.target.value)} value={form}/>
+                <button type="submit">Post</button>
             </form>
+            {/* <PostForm form={form} setForm={setForm} addPost={addPost}/> */}
         </>
     )
 }
