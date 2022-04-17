@@ -42,12 +42,12 @@ function App() {
       setCurrentUser(null)
     }
   }, []);
+
   // logout handler function that deletes a token from localstorage
   const handleLogout = () => {
     // remove the token from local storage
     if (localStorage.getItem("t")) localStorage.removeItem("t")
     if (localStorage.getItem("currentUser")) localStorage.removeItem("currentUser")
-
     // set the user state to be null
     setCurrentUser(null);
   };

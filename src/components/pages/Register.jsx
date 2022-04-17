@@ -28,12 +28,13 @@ export default function Register ({ currentUser, setCurrentUser }) {
                 })
             } catch (err) {
                 // console.log(err.response.data)
+                console.log(err)
                 setMsg(err.response.data)
             }
         } else setMsg('passwords do not match')
     }
 
-    if (currentUser) return <Navigate to='/profile' />
+    if (currentUser) return <Navigate to='/' />
 
     // take key-value pairs from server error and put them into an array
     const errorMessages = []
