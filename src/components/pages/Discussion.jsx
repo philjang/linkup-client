@@ -26,7 +26,7 @@ export default function Discussion({ currentUser }) {
 	useEffect(() => {
         (async () => {
             try {
-                console.log('firing')
+                // console.log('firing')
 				const token = localStorage.getItem("t")
 				const options = {
 					headers: {

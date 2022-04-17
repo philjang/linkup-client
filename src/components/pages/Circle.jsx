@@ -11,16 +11,23 @@ export default function Circle({ currentUser }) {
 	const [circle, setCircle] = useState(null)
 	const [users, setUsers] = useState([])
 	const [discussions, setDiscussions] = useState([])
+    const [discussionForm, setDiscussionForm] = useState({
+        name: '',
+        description: '',
+        circle_id: id
+    })
 	const [showEdit, setShowEdit] = useState(false)
     const [editForm, setEditForm] = useState({name: ''})
 	const [memberAdd, setMemberAdd] = useState(false)
 	const [memberDel, setMemberDel] = useState(false)
     const [memberForm, setMemberForm] = useState({username: ''})
+    const [action, setAction] = useState(0)
 
 	// USE-EFFECT
 	useEffect(() => {
 		(async () => {
 			try {
+                console.log('firint')
 				const token = localStorage.getItem("t")
 				const options = {
 					headers: {
@@ -38,7 +45,7 @@ export default function Circle({ currentUser }) {
 				navigate('/')
 			}
 		})()
-	}, [showEdit, memberAdd, memberDel])
+	}, [showEdit, memberAdd, memberDel, action])
 
     // FUNCTIONS
     const editCircle = async (e) => {
@@ -102,6 +109,30 @@ export default function Circle({ currentUser }) {
         }
     }
 
+    const addDiscussion = async (e) => {
+        e.preventDefault()
+        try {
+            const token = localStorage.getItem("t")
+            const options = {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            }
+            // console.log(data)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/discussions/`, discussionForm, options)
+            console.log(response.data);
+            setDiscussionForm({
+                name: '',
+                description: '',
+                circle_id: id
+            })
+            setAction(action+1)
+        } catch (err) {
+            console.log(err.response.data)
+            navigate('/')
+        }
+    }
+
     const deleteDiscussion = async (discussionId) => {
 		try {
 			const token = localStorage.getItem("t")
@@ -150,26 +181,38 @@ export default function Circle({ currentUser }) {
             {showEdit && (
                 <form onSubmit={editCircle}>
                     <label htmlFor='name'></label>
-                    <input id='name' type='text' placeholder='Enter a new name for your circle' autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name}/>
+                    <input id='name' type='text' placeholder='Enter a new name for your circle' autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name} required/>
                     <button type="submit">Change Name</button>
                 </form>
             )}
+            {/* todo - make more DRY */}
             {memberAdd && (
                 <form onSubmit={addMember}>
                     <label htmlFor='username'></label>
-                    <input id='username' type='text' placeholder='Enter username of new member' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username}/>
+                    <input id='username' type='text' placeholder='Enter username of new member' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
                     <button type="submit">Add Member!</button>
                 </form>
             )}
             {memberDel && (
                 <form onSubmit={deleteMember}>
                     <label htmlFor='username'></label>
-                    <input id='username' type='text' placeholder='Enter username to remove' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username}/>
+                    <input id='username' type='text' placeholder='Enter username to remove' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
                     <button type="submit">Remove Member</button>
                 </form>
             )}
             <p>members: {userList}</p>
             {discussionList}
+            <form onSubmit={addDiscussion}>
+                <div>
+                    <label htmlFor='name'></label>
+                    <input id='name' type='text' placeholder='Enter name...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, name: e.target.value})} value={discussionForm.name} required />
+                </div>
+                <div>
+                    <label htmlFor='description'></label>
+                    <input id='description' type='text' placeholder='Enter description...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, description: e.target.value})} value={discussionForm.description} required/>
+                </div>
+                <button type="submit">Create Discussion!</button>
+            </form>
         </>
     )
 }
