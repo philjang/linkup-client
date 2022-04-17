@@ -115,7 +115,7 @@ export default function Discussion({ currentUser }) {
                     </form>
                 ) : (
                     <>
-                        <h1>Discussions - {discussion.name}</h1>
+                        <h1>Discussion - {discussion.name}</h1>
                         <h3>{discussion.description}</h3>
                     </>
                 )

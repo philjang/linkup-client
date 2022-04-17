@@ -17,9 +17,6 @@ import Profile from "./pages/Profile"
 import Circle from "./pages/Circle";
 import Discussion from "./pages/Discussion";
 import NewCircle from "./pages/NewCircle";
-import Picture from "./pages/Picture"
-import UploadPicture from "./pages/UploadPicture"
-import UploadProfilePic from "./pages/UploadProfilePic"
 
 function App() {
   // STATE
@@ -75,13 +72,8 @@ function App() {
 
             <Route path="/discussions/:id" element={<Discussion currentUser={currentUser} />} />
 
-            <Route path="/new" element={<NewCircle currentUser={currentUser} />} />
+            <Route path="/new" element={<NewCircle />} />
 
-            {/* <Route path="/pictures/:id" element={<Picture currentUser={currentUser} />} /> */}
-
-            {/* <Route path="/new" element={<UploadPicture currentUser={currentUser} />} /> */}
-
-            {/* <Route path="/uploadprofilepic/:id" element={<UploadProfilePic currentUser={currentUser} />} /> */}
             <Route path='*' element={<Error />} />
 
           </Routes>

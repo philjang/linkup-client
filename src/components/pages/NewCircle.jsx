@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import axios from 'axios'
 
-export default function NewCircle({ currentUser }) {
+export default function NewCircle() {
     const [form, setForm] = useState('')
     let navigate = useNavigate()
 
