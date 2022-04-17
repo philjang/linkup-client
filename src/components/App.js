@@ -15,6 +15,7 @@ import Error from "./pages/Error"
 // import About from "./pages/About";
 import Profile from "./pages/Profile"
 import Circle from "./pages/Circle";
+import Discussion from "./pages/Discussion";
 import Picture from "./pages/Picture"
 import UploadPicture from "./pages/UploadPicture"
 import UploadProfilePic from "./pages/UploadProfilePic"
@@ -70,6 +71,8 @@ function App() {
             <Route path="/profiles/:id" element={<Profile currentUser={currentUser} />} />
 
             <Route path="/groups/:id" element={<Circle currentUser={currentUser} />} />
+
+            <Route path="/discussions/:id" element={<Discussion currentUser={currentUser} />} />
 
             {/* <Route path="/pictures/:id" element={<Picture currentUser={currentUser} />} /> */}
 

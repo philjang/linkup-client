@@ -12,6 +12,7 @@ export default function Circle({ currentUser }) {
 	const [users, setUsers] = useState([])
 	const [discussions, setDiscussions] = useState([])
 	const [showEdit, setShowEdit] = useState(false)
+    const [editForm, setEditForm] = useState({name: ''})
 	const [memberAdd, setMemberAdd] = useState(false)
 	const [memberDel, setMemberDel] = useState(false)
     const [memberForm, setMemberForm] = useState({username: ''})
@@ -40,6 +41,27 @@ export default function Circle({ currentUser }) {
 	}, [showEdit, memberAdd, memberDel])
 
     // FUNCTIONS
+
+    const editCircle = async (e) => {
+        e.preventDefault()
+        try {
+            const token = localStorage.getItem("t")
+            const options = {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            }
+            // console.log(options)
+            const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/membership/groups/${id}/`, editForm, options)
+            // console.log(response.data);
+            setEditForm({name: ''})
+            setShowEdit(!showEdit)
+        } catch (err) {
+            console.log(err.response.data)
+            navigate('/')
+        }
+    }
+
     const addMember = async (e) => {
         e.preventDefault()
         try {
@@ -125,6 +147,13 @@ export default function Circle({ currentUser }) {
                     <button onClick={()=> setMemberAdd(!memberAdd)}>{memberAdd ? 'Back' : 'Add New Member'}</button>
                     <button onClick={()=> setMemberDel(!memberDel)}>{memberDel ? 'Back' : 'Remove a Member'}</button>
                 </>
+            )}
+            {showEdit && (
+                <form onSubmit={editCircle}>
+                    <label htmlFor='name'></label>
+                    <input id='name' type='text' placeholder='Enter a new name for your circle' autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name}/>
+                    <button type="submit">Change Name</button>
+                </form>
             )}
             {memberAdd && (
                 <form onSubmit={addMember}>
