@@ -28,7 +28,7 @@ export default function Circle({ currentUser }) {
 					}
 				}
 				// console.log(options)
-				const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/membership/groups/${id}`, options)
+				const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/membership/groups/${id}/`, options)
 				// console.log(response.data);
 				setCircle(response.data.circle)
 				setUsers(response.data.users)
@@ -41,7 +41,6 @@ export default function Circle({ currentUser }) {
 	}, [showEdit, memberAdd, memberDel])
 
     // FUNCTIONS
-
     const editCircle = async (e) => {
         e.preventDefault()
         try {

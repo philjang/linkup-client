@@ -23,7 +23,7 @@ export default function Profile({ currentUser }) {
 					}
 				}
 				// console.log(options)
-				const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/membership/users/${id}`, options)
+				const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/membership/users/${id}/`, options)
 				// console.log(response.data);
 				// setUser(response.data.user)
 				setCircles(response.data.circles)
