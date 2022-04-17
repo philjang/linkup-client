@@ -10,6 +10,7 @@ export default function Discussion() {
     // STATE
 	const [discussion, setDiscussion] = useState(null)
 	const [posts, setPosts] = useState([])
+    const [form, setForm] = useState('')
 
 
 	// USE-EFFECT
@@ -35,6 +36,28 @@ export default function Discussion() {
 	}, [])
 
     // FUNCTIONS
+    const addPost = async (e) => {
+        e.preventDefault()
+        try {
+            const token = localStorage.getItem("t")
+            const options = {
+                headers: {
+                    Authorization: `Token ${token}`
+                }
+            }
+            const data = {
+                content: form,
+                discussion_id: id
+            }
+            console.log(data)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/posts/`, data, options)
+            console.log(response.data);
+            setForm('')
+        } catch (err) {
+            console.log(err.response.data)
+            navigate('/')
+        }
+    }
 
     // COMPONENTS
     const postList = posts.map((post,idx) => {
@@ -51,8 +74,18 @@ export default function Discussion() {
     
     return (
         <>
-            {discussion && <h1>Discussions - {discussion.name}</h1>}
+            {discussion && (
+                <>
+                    <h1>Discussions - {discussion.name}</h1>
+                    <h3>{discussion.description}</h3>
+                </>
+            )}
             {postList}
+            <form onSubmit={addPost}>
+                    <label htmlFor='content'></label>
+                    <input id='content' type='text' placeholder='Enter a new post...' autoComplete='off' onChange={e => setForm(e.target.value)} value={form.content}/>
+                    <button type="submit">Post</button>
+            </form>
         </>
     )
 }
