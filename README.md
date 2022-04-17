@@ -1,153 +1,99 @@
-# A Day in the Life
+1. How do you plan on learning/implementing this new technology?
+- Gitbook
+- Django Tutorial/Documentation
+- Online tutorials/articles/guides/stackoverflow
+- Instructors' graceful assistance...
 
-A day in the life is a MERN stack application. Link to server repository https://github.com/danieldenton/day-in-life-server
+2. What is your goal with this project?
+- To learn more about python and django in use and perhaps gain some familiarity
+- To begin creating a functioning application that allows for many stretch goals that can be implemented post-cohort
 
-Link to deployed version: https://gregarious-starlight-3d969a.netlify.app/
+3. Who is the user for your app?
+- Anyone using the internet that wishes to engage with their friends more intentionally 
 
-# What is it?
+4. Any potential roadbloacks you think you might run into? 
+- Learning a new, albeit widely used, technology does not instill much confidence over planning out the scope of the project
+- I will try to start out with what I envision is a reasonable mvp, but this may still be biting off more than I can chew 
+- With what I understand of python and django now, I'm not completely certain as to the scope of what I can learn and execute within a week's time, compared to what I might be able to do with familiar technologies (i.e. express and javascript)
+- It will be interesting to see how similar tasks are accomplished by the framework and hopefully to see what else python/django has to offer
 
-Do you ever miss the early days of social media? When each application focused more on user needs and less on pumping out a fancy new feature to keep up with their competition? A Day in the Life is a website that aims to make casual photo sharing more engaging again. This app shows you a feed of different users, with a slideshow of their posts, rather than an endless scroll of advertisements and sponsored posts designed to maximize your screen time past what you originally intended. This is based off the idea of engaging with the profile of specific users, to get a more in depth view of what is going on in a day in the life of the individual person. Once clicking on their profile, you will be given a list of all the photo's they've shared. All of these images will be clickable, allowing you to view the picture and share your thoughts!
+# Technologies Planned for Use
+- Python
+- Django
+- Postgres
+- React
+- Axios
 
-# Product screenshot
-![visual of product](./assets/productScreenShot.png)
+# Project Description
 
-# Technologies used
+As the world quickly got thrown into the chaos of COVID, many status quos were dynamically shifted. An absurd number of people across the globe saw negative impacts to too many parts of their lives, all at once. One of these facets was the dissolution of social connections, which has been a detriment to the mental well-being of a widespread population - an issue that is often deprioritized in lieu of more pressing or 'pragmatic' problems. Human beings are by nature communal creatures at our core and I want to leverage technology to address a basic need that society often deems simply extracurricular. I hope that this application will serve as a useful tool to help people gather together and engage one another to form progressively more genuine connections. 
 
-The technologies used to create this project were MongoDB, Mongoose, Express, Node.js, React.js, HTML, CSS, Postman, and Cloudinary API. 
-
-# Approach taken
-
-The first thing we did when starting this project was taking time to learn everyone's vison for the project. Then, we wrote out the user stories to think how someone using our app would want it to feel like. Next, as a group, we drew our wireframs and ERD's to make sure it flowed. The next task was to set up the server routes using Postman, and establish the basic functionality of the back end. The next step was to set up the corresponding front end views using React. After creating the basic layout of the front end, we then implemented Cloudinary on the back end for users to upload a photo. We then stubbed out the forms on the front end to allow the user to upload a photo.
-After all of the website was fully functional, we moved onto adding style to the page. We all agreed on a simple and darker color scheme with an accent of purple. We went through each page and styled them to match with the theme. We added animations to the page to make everything pop visually. 
-
-
-# Installation instructions -- front-end
-
-1. Fork and clone repo
-2. Install repo onto local client
-3. ``` npm i ``` to install all dependencies
-4. Create a .env.local file inside the root directory of the project
-5. Inside the .env.local file type ``` REACT_APP_SERVER_URL=http://127.0.0.1:<portOfYourChoosing> ``` 
-6. npm start 
-
-<details>
-<summary>Dependencies</summary>
-
-1. axios
-2. jsonwebtoken
-3. react-router-dom
-4. jwt-decode
-</details>
-
-# Installation instructions -- back-end
-1. Fork and clone server repo (at the top of the page)
-2. Install repo onto local client
-3. ``` npm i ``` to install all dependencies 
-4. Create a .env file inside the root directory of the project
-5. Inside the .env file add
- ``` 
-  PORT=<portUsedInFrontEnd>
-  MONGODB_URI=mongodb://127.0.0.1/<dataBaseNameOfYourChoosing>
-  JWT_SECRET='<StringOfYourChoosing>'
-  CLOUDINARY_URL=cloudinary://<APIkey>:<APIsecret>@<cloudName> 
-  ```
-6. nodemon
-
-# Restful Routing Chart - back-end
-
-| **CRUD** | **URL**                  | **DESCRIPTION**                                    |
-| -------- | ----------------------   | -------------------------------------------------- |
-| POST     | /api-v1/users/register   | Adds a new user to database                        |
-| POST     | /api-v1/users/login      | Logs in the user, sends back a token               |
-| GET      | /api-v1/users            | Reads all user documents with picture subdocs      |
-| GET      | /api-v1/users/:id        | Reading user document corresponding to ID          |
-| PUT      | /api-v1/users/:id        | Updates user document with profile pic public_id   |
-| DELETE   | /api-v1/users/:id        | Deletes user document corresponding to ID          |
-| POST     | /api-v1/pictures         | Creates picture subdoc in current user document    |
-| POST     | /api-v1/pictures/preview | Uploads picture and sends back src url for preview |
-| GET      | /api-v1/pictures/:id     | Read picture document corresponding to ID          |
-| PUT      | /api-v1/pictures/:id     | Updates picture caption corresponding to ID        |
-| DELETE   | /api-v1/pictures/:id     | Delete individul picture post corresponding to ID  |
-| POST     | /api-v1/comments         | Add comments to an individual picture              |
-| PUT      | /api-v1/comments/:id     | Updates comment corresponding to ID                |
-| DELETE   | /api-v1/comments/:id     | Deletes comment corresponding to ID                |
-
-# Restful Routing Chart - front-end
-
-| **CRUD** | **URL**                | **DESCRIPTION**                                                        |
-| -------- | ---------------------- | ---------------------------------------------------------------------- |
-| GET      | /                      | Renders a landing page that displays information about the app         |
-| GET      | /login                 | Renders a login form for existing users to sign in                     |
-| GET      | /register              | Renders a register form for new users to create an account             |
-| GET      | /about                 | Renders an About page with bio components                              |
-| GET      | /feed                  | Renders all users with slideshow component of their pictures           |
-| GET      | /profiles/:id          | Renders specific user with all corresponding photo components          |
-| GET      | /pictures/:id          | Renders photo details page with all corresponding comments components  |
-| GET      | /new                   | Renders a photo upload form                                            |
-| GET      | /uploadprofilepic/:id  | Renders a profile picture upload form                                  |
-
-
-
-# Wireframes
-
-<details>
-<summary>Click to show</summary>
-
-- About us page
-  ![About us page](./assets/AboutUs.png)
-- Sign up page
-  ![Sign up page](./assets/SignUp.png)
-- Login page
-  ![Sign in page](./assets/Login.png)
-- Public landing page
-  ![Public landing page](./assets/PublicLanding.png)
-- Public feed page
-  ![Public feed page](./assets/PublicFeed.png)
-- Profile page
-  ![Profile page](./assets/Profile.png)
-- Details page
-  ![Details page](./assets/Details.png)
-
-</details>
-
-# ERD
-
-![ERD](./assets/ERD.png)
-
-# User Stories
-
-- As a user without an account, I would like to register with my name, email, and password.
-- As a user without an account, I would like to see a page that explains what a day in the life is, and how it would be useful.
-- As a user who finished registration, I would like to be able to sign into my created account.
-- As a user who is signed in, I would like to be able to sign out of my account.
-- As a user I want to post photos to my profile, so I can see and share them later.
-- As a user I would like to edit any post I have already made.
-- As a user I would like to delete any post I have already made.
-- As a user I want to be the only one who can edit or delete my post.
-- As a user I want to click on others profiles, so I can see the posts they've made.
-- As a user I want to click on an individual picture of another user to see more information.
-- As a user I would like to comment on a individual picture to share my thoughts.
-- As a user I would like to be able to delete a comment I wrote.
-- As a user I would like to be able to edit a comment I wrote.
-
-# MVP goals
-
-- [x] Sign up and sign in functionality.
-- [x] User authentication with encrpyted passwords.
-- [x] CRUD functionality for a users post
-- [x] User authorization for post update and delete.
-- [x] Layout for signed in user home page showing all users with a slideshow of their pictures.
-- [x] Layout for unregistered user home page showing the concept of the app, and how it would be useful.
+# User Flow/User Stories
+- As a user, I want to make a group and add my friends (mvp for admin to add any users, stretch for social-media style mutual add)
+- As a user, I want a separate space to discuss specific topics, so that friends in the group will only have to see the content if they are interested
+- As a user, I want to be able to create a post so that I can connect with my friends
+- As a user, I want to be able to edit a post if I make a typo
+- As a user, I want to be able to delete any posts that I created
+- As a user, I want to be able to join multiple groups 
+- As a user, I want to be able to see who is in my groups
+- As a user, I want to be able to leave groups if needed
 
 # Stretch Goals
+- Add ability to comment on specific posts
+- Add sorting functionality for discussions
+- Differentiate between public and private groups
+- Add event making functionality (post-cohort stretch google calendar api)
+- Polls for where to meet
+- Add cloudinary photo posting
+- Add youtube video embedding
+- Add chatroom in groups (post-cohort stretch socket.io)
+- Add video/voice in chat (post-cohort stretch agora)
+- Sass for styling
 
-- [x] Have the layout of the signed in user resemble a polaroid.
-- [x] CRUD for comments on posts.
-- [x] User authorization for comment update and delete.
-- [ ] Add ability to favorite a user
-- [ ] Add private profiles
-- [ ] Add private photos
-- [ ] Change password
+# Wireframes
+![Landing Page](assets/Landing.png)
+![Login/Register Page](assets/Login.png)
+![User Home Page](assets/Profile.png)
+![Group Page](assets/Group.png)
+![Discussion Page](assets/Discussion.png)
 
-# Post project reflection
-In the future, we would like to implement the stretch goals we didnt have time to get to. Adding the ability to make a profile or photo private in the future will allow further customizability for the users. A challenge that helped our team grow was utilizing group git work flow. It felt very unfamiliar at first, however, in the end it deepened our understanding of how version control and git is beneficial for software engineering. Our team was deliberate with communication and deligation of tasks in order to maintain higher efficiency in productivity. 
+# ERD
+![ERD of database](assets/ERD.drawio.png)
+
+# Front-End URL Patterns (React Routes)
+| Path               | Purpose                                                 |
+| ------------------ | ------------------------------------------------------- |
+| `/`                | Landing Page                                            |
+| `/login`           | Login Page                                              |
+| `/register`        | Register Page                                           |
+| `/profile`         | User home page that displays user's groups              |
+| `/groups/:id`      | Group page that displays groups's discussions and users |
+| `/discussions/:id` | Discussion page that displays discussions's posts       |
+
+# RESTful Routing
+| Method | Path                        | Purpose                                                          |
+| ------ | --------------------------- | ---------------------------------------------------------------- |
+| POST   | `membership/register`       | CREATE a new user                                                |
+| POST   | `membership/login`          | logs in an existing user, adds token to user and sends it back   |
+| DELETE | `membership/logout`         | logs user out, removes token from user, deletes all session data |
+| GET    | `membership/users/:id`      | READ all groups associated with current user                     |
+| POST   | `membership/groups`         | CREATE a new group, makes current user admin                     |
+| PUT    | `membership/groups/:id`     | UPDATE a group with :id, if admin                                |
+| DELETE | `membership/groups/:id`     | DELETE a group with :id, if admin                                |
+| GET    | `membership/groups/:id`     | READ all discussions and users associated to group with :id      |
+| POST   | `membership/groups/:id/add` | CREATE a new M:N connection between group with :id and user      |
+| DELETE | `membership/groups/:id/del` | DELETE the M:N connection between group with :id and user        |
+| POST   | `api/discussions`           | CREATE a new discussion, makes current user admin                |
+| PUT    | `api/discussions/:id`       | UPDATE a discussion with :id, if admin                           |
+| DELETE | `api/discussions/:id`       | DELETE a discussion with :id, if admin                           |
+| GET    | `api/discussions/:id`       | READ all posts associated to discussion with :id                 |
+| POST   | `api/posts`                 | CREATE a new post, makes current user owner                      |
+| PUT    | `api/posts/:id`             | UPDATE a post with :id, if owner                                 |
+| DELETE | `api/posts/:id`             | DELETE a post with :id, if owner                                 |
+
+# Sprints
+- Tuesday: Review/Research Python/Django
+- Wednesday: Begin back-end construction
+- Thursday: Finish back-end and begin React front-end
+- Friday: Finish front-end
+- Saturday: Styling and refactoring
