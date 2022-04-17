@@ -40,7 +40,7 @@ export default function Login ({ currentUser, setCurrentUser }) {
                 <div className='column'>
 
                     <label htmlFor="username">Username:</label>
-                    <input id="username" type="username" placeholder='Enter username here...' autoComplete="off" onChange={e => setForm({...form, username: e.target.value})} value={form.username} />
+                    <input id="username" type="text" placeholder='Enter username here...' autoComplete="off" onChange={e => setForm({...form, username: e.target.value})} value={form.username} />
                     
                     <label htmlFor="password">Password:</label>
                     <input id="password" type="password" onChange={e => setForm({...form, password: e.target.value})} value={form.password} />

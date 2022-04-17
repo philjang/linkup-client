@@ -2,7 +2,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from "react-router-dom";
 import { useState, useEffect } from "react"
 
@@ -14,10 +13,9 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Error from "./pages/Error"
 // import About from "./pages/About";
-import Feed from "./pages/Feed"
 import Profile from "./pages/Profile"
+import Circle from "./pages/Circle";
 import Picture from "./pages/Picture"
-import axios from "axios"
 import UploadPicture from "./pages/UploadPicture"
 import UploadProfilePic from "./pages/UploadProfilePic"
 
@@ -69,9 +67,9 @@ function App() {
 
             {/* <Route path="/about" element={<About />} /> */}
 
-            <Route path="/profile" element={<Profile />} />
-
             <Route path="/profiles/:id" element={<Profile currentUser={currentUser} />} />
+
+            <Route path="/groups/:id" element={<Circle currentUser={currentUser} />} />
 
             {/* <Route path="/pictures/:id" element={<Picture currentUser={currentUser} />} /> */}
 

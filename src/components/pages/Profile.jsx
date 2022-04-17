@@ -1,4 +1,3 @@
-import Photo from "../partials/Photo"
 import { Link, useParams, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
@@ -36,8 +35,6 @@ export default function Profile({ currentUser }) {
 	}, [showEdit])
 
 	// FUNCTIONS
-
-	// Deletes pictures corresponding to ID
 	const handleDelete = async (circleId) => {
 		try {
 			const token = localStorage.getItem("t")
@@ -53,15 +50,16 @@ export default function Profile({ currentUser }) {
 			console.log(err)
 		}
 	}
+
 	// COMPONENTS
 	const groupList = circles.map((circle,idx) => {
 		return (
-			<Link key={idx} to={`/groups/${circle.id}`}>
-				<div className='card'>
+			<div key={idx} className='card'>
+				<Link to={`/groups/${circle.id}`}>
 					<h2>{circle.name}</h2>
-					{currentUser.userId === circle.admin.toString() && showEdit && <button onClick={() => handleDelete(circle.id)} className="btn-dlt animate__animated animate__infinite animate__pulse"><i className="fas fa-times-circle"></i></button>}
-				</div>
-			</Link>
+				</Link>
+				{currentUser.userId === circle.admin.toString() && showEdit && <button onClick={() => handleDelete(circle.id)} className="btn-dlt animate__animated animate__infinite animate__pulse"><i className="fas fa-times-circle"></i></button>}
+			</div>
 		)
 	})
 
