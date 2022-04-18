@@ -54,7 +54,7 @@ export default function Profile({ currentUser }) {
 	// COMPONENTS
 	const groupList = circles.map((circle,idx) => {
 		return (
-			<div key={idx} className='card'>
+			<div key={idx} className='card animate__animated animate__bounceIn'>
 				<Link to={`/groups/${circle.id}`}>
 					<h2>{circle.name}</h2>
 				</Link>
@@ -64,8 +64,8 @@ export default function Profile({ currentUser }) {
 	})
 
 	return (
-		<div className="profile animate__animated animate__fadeIn">
-			<h1>My Circles</h1>
+		<div className="profile">
+			<h1 className="animate__animated animate__bounceIn">My Circles</h1>
 			<button onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>
 			{groupList}
 		</div>

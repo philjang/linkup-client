@@ -33,16 +33,16 @@ export default function Login ({ currentUser, setCurrentUser }) {
     // navigate to the user's profile if currentUse is not null
     if (currentUser) return <Navigate to='/' />
     return (
-        <div className='bg-light margin-lr'>
+        <div className='bg-light margin-lr animate__animated animate__zoomIn'>
             <h2>Log In</h2>
             {msg && <p>message from server: {msg}</p>}
             <form onSubmit={handleFormSubmit}>
                 <div className='column'>
 
-                    <label htmlFor="username">Username:</label>
-                    <input id="username" type="text" placeholder='Enter username here...' autoComplete="off" onChange={e => setForm({...form, username: e.target.value})} value={form.username} />
+                    <label htmlFor="username">Username</label>
+                    <input id="username" type="text" autoComplete="off" onChange={e => setForm({...form, username: e.target.value})} value={form.username} />
                     
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password">Password</label>
                     <input id="password" type="password" onChange={e => setForm({...form, password: e.target.value})} value={form.password} />
 
                     <button className='btn' type="submit">Log In</button>

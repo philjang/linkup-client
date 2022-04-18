@@ -122,12 +122,12 @@ export default function Discussion({ currentUser }) {
             )}
             {discussion && currentUser.userId === discussion.admin.toString() && <button onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>}
             {postList}
-            <hr />
+            {discussion && <><hr />
             <form onSubmit={addPost}>
                 <label htmlFor='content'></label>
                 <input id='content' type='text' placeholder='Enter a new post...' autoComplete='off' onChange={e => setPostForm(e.target.value)} value={postForm} required/>
                 <button type="submit">Post</button>
-            </form>
+            </form></>}
             {/* <PostForm form={form} setForm={setForm} addPost={addPost}/> */}
         </>
     )

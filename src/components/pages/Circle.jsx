@@ -203,7 +203,7 @@ export default function Circle({ currentUser }) {
             <p>members: {userList}</p>
             {discussionList}
             <h3>Add a New Discussion:</h3>
-            <form onSubmit={addDiscussion}>
+            {circle && <><form onSubmit={addDiscussion}>
                 <div>
                     <label htmlFor='name'></label>
                     <input id='name' type='text' placeholder='Enter name...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, name: e.target.value})} value={discussionForm.name} required />
@@ -213,7 +213,7 @@ export default function Circle({ currentUser }) {
                     <input id='description' type='text' placeholder='Enter description...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, description: e.target.value})} value={discussionForm.description} required/>
                 </div>
                 <button type="submit">Create Discussion!</button>
-            </form>
+            </form></>}
         </>
     )
 }

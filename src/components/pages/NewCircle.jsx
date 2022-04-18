@@ -26,7 +26,7 @@ export default function NewCircle() {
     }
 
     return (
-        <div className="newCircle">
+        <div className="newCircle bg-light margin-lr">
             <h2>New Circle</h2>
             <form onSubmit={addCircle}>
                 <div>
@@ -34,7 +34,7 @@ export default function NewCircle() {
                     <input id='name' type='text' placeholder='Enter a name for your new circle' autoComplete='off' onChange={e => setForm(e.target.value)} value={form} required/>
                 </div>
                 <div>
-                    <button type="submit">Create Circle!</button>
+                    <button className='btn' type="submit">Create Circle!</button>
                 </div>
            </form>
         </div>

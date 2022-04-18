@@ -1,6 +1,13 @@
 :root {
+  --primary-color: powderblue;
+  --secondary-color: aquamarine;
+  --primary-text-color: blue;
+  --secondary-text-color: lightblue;
+  --primary-bg-color: beige;
+  --secondary-bg-color: turquoise;
   /* background-color: rgb(49, 56, 64); */
-  background: rgba(49, 56, 64, 1);
+  /* background: rgb(206, 239, 255); */
+  background: rgb(222, 244, 255);
   color: white;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -10,7 +17,8 @@ body {
 }
 
 main {
-  margin: 7vh 15vw;
+  margin: 3vh 15vw;
+  /* background-color: aliceblue; */
 }
 
 @media (max-width: 768px) {
@@ -21,114 +29,100 @@ main {
 
 input {
   text-align: center;
-  line-height: 2em;
-  width: 30vw;
+  line-height: 3em;
+  width: 25vw;
   margin: 1em auto;
-  border-radius: 0.25em;
+  border-radius: 1em;
   border: none;
 }
 
-
-footer {
-  margin: 2vw 0;
+@media (max-width: 768px) {
+  input {
+    width: 60vw;
+  }
 }
 
-footer a {
+input:focus {
+  border: none;
+  outline: none;
+  box-shadow: 0 0 10px #85c0ff;
+}
+
+input::placeholder {
+  /* opacity: 1; */
   color: white;
 }
 
-.App {
-  text-align: center;
-  /* background-color: powderblue; */
+.bg-light input {
+  background-color: rgb(49, 72, 135);
+  color: white;
 }
 
-.nav-link {
-  /* TRBL */
-  padding: 0px 10px 0px 10px;
-  color: whitesmoke;
+label {
+  position: relative;
+  text-align: left;
+  left: 7em;
+  top: 1.5em;
+}
+
+@media (max-width: 768px) {
+  label {
+    left: 1.5em;
+  }
 }
 
 a {
   text-decoration: none;
 }
 
-nav a:hover {
-  color: rgb(86, 88, 255);
+a:hover {
+  color: rgb(85, 163, 253);
 }
 
 nav {
-  padding: 1rem;
-  margin: 0px;
-  background-color: rgba(34, 39, 45, 0.8);
-  font-family: Arial, Helvetica, sans-serif;
-  color: rgb(250, 249, 239);
+  padding: 2rem;
+  color: rgb(143, 195, 255);
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 1;
+  background-color: rgba(105, 200, 255, 0.131)
 }
 
-
-
-
-
-/* the feed/profile page div */
-/* .feed-page {
-} */
-
-/* individual photo on feed/profile page */
-.polaroid-image {
-  /* margin-top: 7.9%; */
-  width: 16.1vw;
-  height: 16.1vw;
-  object-fit: contain;
+nav a {
+  padding: 0 1em;
+  color: rgb(117, 176, 243);
 }
 
-/* photo details page img */
-.individual {
-  width: 70vw;
-  height: 40vh;
-  object-fit: contain;
-  margin: 5vh auto;
+nav a:hover {
+  color: rgb(0, 82, 189);
+  /* color: rgb(153, 207, 255); */
 }
 
-.solo-pic-background {
+footer {
+  padding: 1vw 0 2vw 0;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  color: rgb(143, 195, 255);
+  /* background-color: rgba(255, 255, 255, 0.314) */
+}
+
+footer a {
+  font-size: 1.5em;
+  color: rgb(143, 195, 255);
+}
+
+/* POSITIONING */
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.flex-center {
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -50vh;
-  margin-left: -50vw;
-  background-color: rgb(32, 38, 43);
-  height: 100vh;
-  width: 100vw;
-  z-index: 1;
+  align-items: center;;
 }
-
-/* soloing the picture from the picture page */
-.solo {
-  width: 80vw;
-  height: 70vh;
-  object-fit: contain;
-  margin: 5vh auto;
-}
-
-/* class for title in feed */
-.dil {
-  font-family: "Candal", sans-serif;
-  color: white;
-  text-shadow: 3px 4px 18px #000000;
-}
-
-.owner-name {
-  font-family: "Candal", sans-serif;
-  color: white;
-  text-shadow: 3px 4px 18px #000000;
-}
-
-/* .sign-up {
-} */
 
 .row {
   display: flex;
@@ -143,29 +137,37 @@ nav {
   align-items: space-around;
 }
 
-.center {
-  margin: 0 auto;
-  text-align: center;
-}
-
-.bg-light {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 2em;
-  border-radius: 0.5em;
-}
 
 .margin-lr {
-  margin-left: 15vw;
-  margin-right: 15vw;
+  margin: 0 15vw;
+}
+
+@media (max-width: 768px) {
+  .margin-lr {
+    margin: 0 4vw;
+  }
+}
+
+/* PROPERTIES */
+.bg-light {
+  background-color: rgb(33, 48, 91);
+  padding: 2em;
+  border-radius: 7vw;
+}
+
+/* ELEMENTS */
+.App {
+  text-align: center;
+  /* background-color: powderblue; */
 }
 
 .btn {
   margin: 1em auto 1.5em auto;
   color: white;
-  background-color: rgba(49, 56, 64, 1);
-  width: 20vw;
-  padding: 1em 3em;
-  border-radius: 0.75em;
+  background-color: rgb(30, 114, 210);
+  width: 12em;
+  padding: .5em 0;
+  border-radius: 1em;
   border: none;
   font-size: 1em;
 }
@@ -187,7 +189,7 @@ nav {
 .btn-sm:hover,
 .btn-edit:hover,
 .image-upload:hover {
-  background-color: rgb(86, 88, 255);
+  background-color: rgb(87, 166, 255);
   color: white;
   cursor: pointer;
 }
@@ -245,9 +247,6 @@ nav {
 }
 
 @media (max-width: 768px) {
-  .btn {
-    padding: 1em 0;
-  }
   .picture .btn-edit {
     bottom: 0;
   }
@@ -259,6 +258,8 @@ nav {
   }
 }
 
+
+/* ANIMATIONS */
 .polaroid.animate__infinite.animate__pulse {
   --animate-duration: 4s;
 }
@@ -267,143 +268,11 @@ nav {
   --animate-duration: 1.5s;
 }
 
-.picture .comment p {
-  margin: 1.88em 0;
-}
-
-.picture p {
-  margin: 1.17em 0;
-}
-
-.image-upload {
-  margin: 1em auto 1.5em auto;
-  color: white;
-  background-color: rgba(49, 56, 64, 1);
-  width: 6em;
-  padding: 0.5em 1.5em;
-  border-radius: 0.75em;
-  border: none;
-}
-
-@media (max-width: 768px) {
-  .image-upload {
-    margin: 1em auto 1.5em auto;
-    color: white;
-    background-color: rgba(49, 56, 64, 1);
-    width: 20vw;
-    padding: 0.5em 0;
-  }
-}
-
-.github-button {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.15);
-  padding: 1rem;
-  border-radius: 0.35rem;
-}
-
-.landing-text-one {
-  font-size: 3.9rem;
-  font-family: "Candal", sans-serif;
-  text-shadow: 3px 4px 18px #000000;
-}
-
-.github-button:hover {
-  background-color: rgb(86, 88, 255);
-}
-
-.landing-p-one {
-  margin-bottom: 2rem;
-  font-size: 1em;
-  color: rgb(201, 201, 201);
-}
-
-.app-explanation-two {
-  margin-top: 3rem;
-  display: flex;
-  flex-direction: row;
-  gap: 0rem 3rem;
-  color: rgb(201, 201, 201);
-}
-
-.life {
-  color: rgb(86, 88, 255);
-}
-
-.about-h1 {
-  font-size: 3rem;
-  font-family: "Candal", sans-serif;
-  text-shadow: 3px 4px 18px #000000;
-}
-
-.landing-text {
-  color: rgb(201, 201, 201);
-  width: 25vw;
-}
-
-.landing-text-bot {
-  margin-bottom: 2rem;
-  color: rgb(201, 201, 201);
-}
-
-.imgur {
-  margin: 0 auto;
-  width: 40rem;
-}
-
-.member-name {
-  font-size: 1.2rem;
-}
-
-.socials a {
-  color: white;
-  font-size: 2rem;
-}
-
-.bios {
-  width: 30rem;
-}
-
-.indv-user {
-  color: rgba(86, 89, 255, 0.995);
-}
-
-#profile-pic {
-  max-width: 20vw;
-  border-radius: 50%;
-  border: rgb(86, 88, 255) solid 1.5px;
-  box-shadow: 5px 10px 18px #000000;
-}
-
-#profile-pic-link {
-  color: white;
-  background-color: rgb(32, 38, 43);
-  padding: 0.5em 1em;
-  border-radius: 0.25em;
-  border: none;
-  text-decoration: none;
-  font-size: 0.75em;
-}
-
-#profile-pic-link:hover {
-  background-color: rgb(86, 88, 255);
-}
-
-#delete-btn {
-  color: white;
-  background-color: rgb(255, 104, 137);
-  padding: 0.5em 1em;
-  border-radius: 0.25em;
-  border: none;
-  text-decoration: none;
-}
-
-#delete-btn:hover {
-  color: white;
-  background-color: red;
-  box-shadow: 5px 7px 18px #000000;
-}
-
-.max-file {
-  color: rgb(137, 153, 173);
+/* APP-SPECIFIC */
+.landing {
+  width: 100%;
+  height: 75vh;
+  color: rgb(30, 114, 210);
+  /* background-color: aliceblue; */
+  font-size: 3em;
 }
