@@ -170,7 +170,7 @@ export default function Circle({ currentUser }) {
 
     return (
         <>
-            {circle && <h1><i className="fas fa-link"></i>  {circle.name}</h1>}
+            {circle && <h1 className="animate__animated animate__bounceIn"><i className="fas fa-link"></i>  {circle.name}</h1>}
 			{circle && currentUser.userId === circle.admin.toString() && (
                 <>
                     <button className='btn' onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>
@@ -179,7 +179,7 @@ export default function Circle({ currentUser }) {
                 </>
             )}
             {showEdit && (
-                <form className='white-form' onSubmit={editCircle}>
+                <form className='white-form animate__animated animate__fadeInLeft' onSubmit={editCircle}>
                     <label htmlFor='name'></label>
                     <input id='name' type='text' placeholder='Enter a new name for your circle' autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name} required/>
                     <button className='btn' type="submit">Change Name</button>
@@ -187,22 +187,22 @@ export default function Circle({ currentUser }) {
             )}
             {/* todo - make more DRY */}
             {memberAdd && (
-                <form className='white-form' onSubmit={addMember}>
+                <form className='white-form animate__animated animate__fadeInLeft' onSubmit={addMember}>
                     <label htmlFor='username'></label>
                     <input id='username' type='text' placeholder='Enter username of new member' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
                     <button className='btn' type="submit">Add Member!</button>
                 </form>
             )}
             {memberDel && (
-                <form className='white-form' onSubmit={deleteMember}>
+                <form className='white-form animate__animated animate__fadeInLeft' onSubmit={deleteMember}>
                     <label htmlFor='username'></label>
                     <input id='username' type='text' placeholder='Enter username to remove' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
                     <button className='btn' type="submit">Remove Member</button>
                 </form>
             )}
-            <p className='primary-text'>members: {userList.join(', ')}</p>
+            <p className='primary-text animate__animated animate__fadeIn'>members: {userList.join(', ')}</p>
             {discussionList}
-            <div className="bg-light column margin-lr">
+            <div className="bg-light column margin-lr animate__animated animate__fadeIn">
                 <h3>Add a New Discussion:</h3>
                 {circle && <><form onSubmit={addDiscussion}>
                     <div>

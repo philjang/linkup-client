@@ -59,7 +59,7 @@ export default function Post({ currentUser, post, time, actions, setActions }) {
             {showEdit ? 
                 (
                     <>
-                        <form className='bg-light margin-lr' onSubmit={editPost}>
+                        <form className='bg-light margin-lr animate__animated animate__fadeInLeft' onSubmit={editPost}>
                             <label htmlFor='content'></label>
                             <input id='content' type='text' placeholder={post.content} autoComplete='off' onChange={e => setEditForm(e.target.value)} value={editForm} required/>
                             <button className='btn' type="submit">Submit Edits</button>

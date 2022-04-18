@@ -102,7 +102,7 @@ export default function Discussion({ currentUser }) {
         <>
             {discussion && (
                 showEdit? (
-                    <form className='bg-light margin-lr column' onSubmit={editDiscussion}>
+                    <form className='bg-light margin-lr column animate__animated animate__fadeIn' onSubmit={editDiscussion}>
                         <label htmlFor='name'>Name:</label>
                         <input id='name' type='text' placeholder={discussion.name} autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name} required />
 
@@ -112,15 +112,15 @@ export default function Discussion({ currentUser }) {
                     </form>
                 ) : (
                     <>
-                        <h1><i className="far fa-comments"></i> {discussion.name}</h1>
-                        <h3 className='primary-text'>{discussion.description}</h3>
+                        <h1 className="animate__animated animate__bounceIn"><i className="far fa-comments"></i> {discussion.name}</h1>
+                        <h3 className='primary-text animate__animated animate__fadeIn'>{discussion.description}</h3>
                     </>
                 )
             )}
             {discussion && currentUser.userId === discussion.admin.toString() && <button className='btn' onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit Discussion'}</button>}
             {postList}
             {discussion && <>
-            <form className='white-form' onSubmit={addPost}>
+            <form className='white-form animate__animated animate__fadeInUp' onSubmit={addPost}>
                 <label htmlFor='content'></label>
                 <input id='content' type='text' placeholder='Enter a new post...' autoComplete='off' onChange={e => setPostForm(e.target.value)} value={postForm} required/>
                 <button className='btn' type="submit">Post</button>
