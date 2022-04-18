@@ -102,31 +102,28 @@ export default function Discussion({ currentUser }) {
         <>
             {discussion && (
                 showEdit? (
-                    <form onSubmit={editDiscussion}>
-                        <div>
-                            <label htmlFor='name'>Name:</label>
-                            <input id='name' type='text' placeholder={discussion.name} autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name} required />
-                        </div>
-                        <div>
-                            <label htmlFor='description'>Description:</label>
-                            <input id='description' type='text' placeholder={discussion.description} autoComplete='off' onChange={e => setEditForm({...editForm, description: e.target.value})} value={editForm.description} required/>
-                        </div>
-                        <button type="submit">Submit Edits</button>
+                    <form className='bg-light margin-lr column' onSubmit={editDiscussion}>
+                        <label htmlFor='name'>Name:</label>
+                        <input id='name' type='text' placeholder={discussion.name} autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name} required />
+
+                        <label htmlFor='description'>Description:</label>
+                        <input id='description' type='text' placeholder={discussion.description} autoComplete='off' onChange={e => setEditForm({...editForm, description: e.target.value})} value={editForm.description} required/>
+                        <button className='btn' type="submit">Submit Edits</button>
                     </form>
                 ) : (
                     <>
-                        <h1>Discussion - {discussion.name}</h1>
-                        <h3>{discussion.description}</h3>
+                        <h1><i className="far fa-comments"></i> {discussion.name}</h1>
+                        <h3 className='primary-text'>{discussion.description}</h3>
                     </>
                 )
             )}
-            {discussion && currentUser.userId === discussion.admin.toString() && <button onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>}
+            {discussion && currentUser.userId === discussion.admin.toString() && <button className='btn' onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit Discussion'}</button>}
             {postList}
-            {discussion && <><hr />
-            <form onSubmit={addPost}>
+            {discussion && <>
+            <form className='white-form' onSubmit={addPost}>
                 <label htmlFor='content'></label>
                 <input id='content' type='text' placeholder='Enter a new post...' autoComplete='off' onChange={e => setPostForm(e.target.value)} value={postForm} required/>
-                <button type="submit">Post</button>
+                <button className='btn' type="submit">Post</button>
             </form></>}
             {/* <PostForm form={form} setForm={setForm} addPost={addPost}/> */}
         </>

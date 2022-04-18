@@ -59,25 +59,24 @@ export default function Post({ currentUser, post, time, actions, setActions }) {
             {showEdit ? 
                 (
                     <>
-                        <form onSubmit={editPost}>
+                        <form className='bg-light margin-lr' onSubmit={editPost}>
                             <label htmlFor='content'></label>
                             <input id='content' type='text' placeholder={post.content} autoComplete='off' onChange={e => setEditForm(e.target.value)} value={editForm} required/>
-                            <button type="submit">Submit Edits</button>
+                            <button className='btn' type="submit">Submit Edits</button>
                         </form>
                         <button onClick={() => deletePost(post.id)} className="btn-dlt animate__animated animate__infinite animate__pulse"><i className="fas fa-times-circle"></i></button>
                     </>
 
                  ) :
                  (
-                    <div className="card">
-                        <hr />
+                    <div className="card animate__animated animate__bounceIn">
                         <h3>{post.content}</h3>
                         <p>- {post.owner}</p>
                         <p>{time}</p>
                     </div>
                  ) 
             }
-            {post.owner === currentUser.user && <button className='' onClick={() => setShowEdit(!showEdit)}>{showEdit ? 'Back' : 'Edit Post'}</button>}
+            {post.owner === currentUser.user && <button  className='btn' onClick={() => setShowEdit(!showEdit)}>{showEdit ? 'Back' : 'Edit Post'}</button>}
         </div>
     )
 }

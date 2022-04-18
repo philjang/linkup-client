@@ -16,7 +16,7 @@ export default function NewCircle() {
                 }
             }
             const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/membership/groups/`, {name: form}, options)
-            console.log(response.data)
+            // console.log(response.data)
             setForm('')
             navigate('/')
         } catch (err) {

@@ -152,13 +152,13 @@ export default function Circle({ currentUser }) {
     // COMPONENTS
     const userList = users.map((user,idx) => {
         return (
-            ` ${user} `
+            `${user}`
         )
     })
 
     const discussionList = discussions.map((discussion,idx) => {
         return (
-            <div key={idx} className="card">
+            <div key={idx} className="card animate__animated animate__bounceIn">
                 <Link to={`/discussions/${discussion.id}`}>
                     <h2>{discussion.name}</h2>
                     <h3>{discussion.description}</h3>
@@ -170,19 +170,19 @@ export default function Circle({ currentUser }) {
 
     return (
         <>
-            {circle && <h1>Circle - {circle.name}</h1>}
+            {circle && <h1><i className="fas fa-link"></i>  {circle.name}</h1>}
 			{circle && currentUser.userId === circle.admin.toString() && (
                 <>
-                    <button onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>
-                    <button onClick={()=> setMemberAdd(!memberAdd)}>{memberAdd ? 'Back' : 'Add New Member'}</button>
-                    <button onClick={()=> setMemberDel(!memberDel)}>{memberDel ? 'Back' : 'Remove a Member'}</button>
+                    <button className='btn' onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>
+                    <button className='btn' onClick={()=> setMemberAdd(!memberAdd)}>{memberAdd ? 'Back' : 'Add New Member'}</button>
+                    <button className='btn' onClick={()=> setMemberDel(!memberDel)}>{memberDel ? 'Back' : 'Remove a Member'}</button>
                 </>
             )}
             {showEdit && (
-                <form onSubmit={editCircle}>
+                <form className='white-form' onSubmit={editCircle}>
                     <label htmlFor='name'></label>
                     <input id='name' type='text' placeholder='Enter a new name for your circle' autoComplete='off' onChange={e => setEditForm({...editForm, name: e.target.value})} value={editForm.name} required/>
-                    <button type="submit">Change Name</button>
+                    <button className='btn' type="submit">Change Name</button>
                 </form>
             )}
             {/* todo - make more DRY */}
@@ -190,30 +190,32 @@ export default function Circle({ currentUser }) {
                 <form onSubmit={addMember}>
                     <label htmlFor='username'></label>
                     <input id='username' type='text' placeholder='Enter username of new member' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
-                    <button type="submit">Add Member!</button>
+                    <button className='btn' type="submit">Add Member!</button>
                 </form>
             )}
             {memberDel && (
                 <form onSubmit={deleteMember}>
                     <label htmlFor='username'></label>
                     <input id='username' type='text' placeholder='Enter username to remove' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
-                    <button type="submit">Remove Member</button>
+                    <button className='btn' type="submit">Remove Member</button>
                 </form>
             )}
-            <p>members: {userList}</p>
+            <p className='primary-text'>members: {userList.join(', ')}</p>
             {discussionList}
-            <h3>Add a New Discussion:</h3>
-            {circle && <><form onSubmit={addDiscussion}>
-                <div>
-                    <label htmlFor='name'></label>
-                    <input id='name' type='text' placeholder='Enter name...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, name: e.target.value})} value={discussionForm.name} required />
-                </div>
-                <div>
-                    <label htmlFor='description'></label>
-                    <input id='description' type='text' placeholder='Enter description...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, description: e.target.value})} value={discussionForm.description} required/>
-                </div>
-                <button type="submit">Create Discussion!</button>
-            </form></>}
+            <div className="bg-light column margin-lr">
+                <h3>Add a New Discussion:</h3>
+                {circle && <><form onSubmit={addDiscussion}>
+                    <div>
+                        <label htmlFor='name'></label>
+                        <input id='name' type='text' placeholder='Enter name...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, name: e.target.value})} value={discussionForm.name} required />
+                    </div>
+                    <div>
+                        <label htmlFor='description'></label>
+                        <input id='description' type='text' placeholder='Enter description...' autoComplete='off' onChange={e => setDiscussionForm({...discussionForm, description: e.target.value})} value={discussionForm.description} required/>
+                    </div>
+                    <button className='btn' type="submit">Create Discussion!</button>
+                </form></>}
+            </div>
         </>
     )
 }

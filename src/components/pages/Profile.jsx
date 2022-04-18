@@ -65,8 +65,8 @@ export default function Profile({ currentUser }) {
 
 	return (
 		<div className="profile">
-			<h1 className="animate__animated animate__bounceIn">My Circles</h1>
-			<button onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>
+			<h1 className="animate__animated animate__bounceIn"><i className="fas fa-user-circle"></i> My Circles</h1>
+			<button className='btn' onClick={()=> setShowEdit(!showEdit)}>{showEdit ? 'Done' : 'Edit'}</button>
 			{groupList}
 		</div>
 	)

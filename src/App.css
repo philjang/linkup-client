@@ -54,6 +54,14 @@ input::placeholder {
   color: white;
 }
 
+.white-form input {
+  margin-right: .5em;
+}
+
+.white-form input::placeholder {
+  color: gray;
+}
+
 .bg-light input {
   background-color: rgb(49, 72, 135);
   color: white;
@@ -74,6 +82,7 @@ label {
 
 a {
   text-decoration: none;
+  color: white;
 }
 
 a:hover {
@@ -114,6 +123,14 @@ footer a {
   color: rgb(143, 195, 255);
 }
 
+h1 {
+  color: rgb(30, 114, 210);
+
+}
+
+h3 {
+  /* margin: 0 0; */
+}
 /* POSITIONING */
 .center {
   margin: 0 auto;
@@ -159,6 +176,10 @@ footer a {
   background-color: rgb(33, 48, 91);
   padding: 2em;
   border-radius: 7vw;
+}
+
+.primary-text {
+  color: rgb(30, 114, 210);
 }
 
 /* ELEMENTS */
@@ -229,7 +250,7 @@ footer a {
   width: 1.8em;
   color: white;
   background-color: rgb(255, 104, 137);
-  margin: 0 auto;
+  margin: 0 .5em;
   padding: 0.2em 0.3em;
   border-radius: 0.4em;
   border: none;
@@ -285,4 +306,11 @@ footer a {
 
 .newCircle {
   margin-top: 20vh;
+}
+
+.card {
+  background-color: rgb(33, 48, 91);
+  padding: 5vh 0;
+  margin: 1em 10vw;
+  border-radius: 2em;
 }
