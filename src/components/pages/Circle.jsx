@@ -187,14 +187,14 @@ export default function Circle({ currentUser }) {
             )}
             {/* todo - make more DRY */}
             {memberAdd && (
-                <form onSubmit={addMember}>
+                <form className='white-form' onSubmit={addMember}>
                     <label htmlFor='username'></label>
                     <input id='username' type='text' placeholder='Enter username of new member' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
                     <button className='btn' type="submit">Add Member!</button>
                 </form>
             )}
             {memberDel && (
-                <form onSubmit={deleteMember}>
+                <form className='white-form' onSubmit={deleteMember}>
                     <label htmlFor='username'></label>
                     <input id='username' type='text' placeholder='Enter username to remove' autoComplete='off' onChange={e => setMemberForm({...memberForm, username: e.target.value})} value={memberForm.username} required/>
                     <button className='btn' type="submit">Remove Member</button>
