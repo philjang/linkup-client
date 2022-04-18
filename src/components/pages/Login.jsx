@@ -33,7 +33,7 @@ export default function Login ({ currentUser, setCurrentUser }) {
     // navigate to the user's profile if currentUse is not null
     if (currentUser) return <Navigate to='/' />
     return (
-        <div className='bg-light margin-lr animate__animated animate__zoomIn'>
+        <div className='bg-light margin-top margin-lr animate__animated animate__zoomIn'>
             <h2>Log In</h2>
             {msg && <p>message from server: {msg}</p>}
             <form onSubmit={handleFormSubmit}>

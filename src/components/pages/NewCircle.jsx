@@ -26,7 +26,7 @@ export default function NewCircle() {
     }
 
     return (
-        <div className="newCircle bg-light margin-lr">
+        <div className="newCircle bg-light margin-lr animate__animated animate__zoomIn">
             <h2>New Circle</h2>
             <form onSubmit={addCircle}>
                 <div>

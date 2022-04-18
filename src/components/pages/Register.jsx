@@ -51,7 +51,7 @@ export default function Register ({ currentUser, setCurrentUser }) {
     })
 
     return (
-        <div className='bg-light margin-lr animate__animated animate__zoomIn'>
+        <div className='bg-light margin-top margin-lr animate__animated animate__zoomIn'>
             <h2>Sign Up</h2>
             {/* ternary to display server error or string error if passwords do not match */}
             {msg && typeof msg === 'object' ? (
